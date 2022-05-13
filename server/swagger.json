@@ -1,0 +1,738 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API SGD",
+    "description": "Simple API of SGD system",
+    "version": "1.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "EtapaEapREST",
+      "description": "Interface REST para consumir dados da tabela tb_etapa_eap"
+    },
+    {
+      "name": "AtividadeEtapaEapREST",
+      "description": "Interface REST para consumir dados da tabela tb_atividade_etapa_eap"
+    },
+    {
+      "name": "AtividadeBacklogREST",
+      "description": "Interface REST para consumir dados da tabela tb_atividade_backlog"
+    },
+    {
+      "name": "PrioridadeAtividadeREST",
+      "description": "Interface REST para consumir dados da tabela tb_prioridade_atividade"
+    },
+    {
+      "name": "SituacaoAtividadeREST",
+      "description": "Interface REST para consumir dados da tabela tb_situacao_atividade"
+    },
+    {
+      "name": "SprintREST",
+      "description": "Interface REST para consumir dados da tabela tb_ted_unb"
+    },
+    {
+      "name": "TarefaREST",
+      "description": "Interface REST para consumir dados da tabela tb_tarefa"
+    },
+    {
+      "name": "SituacaoTarefaREST",
+      "description": "Interface REST para consumir dados da tabela tb_situacao_tarefa"
+    },
+    {
+      "name": "MotivoBloqueioREST",
+      "description": "Interface REST para consumir dados da tabela tb_motivo_bloqueio"
+    },
+    {
+      "name": "PerfilUsuarioREST",
+      "description": "Interface REST para consumir dados da tabela tb_perfil_usuario"
+    }
+    
+  ],
+  "paths": {
+    "/etapaeap": {
+      "get": {
+        "tags": [
+          "EtapaEapREST"
+        ],
+        "operationId": "etapaeap",
+        "summary": "Retorna a lista de etapas eap",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "EtapaEapResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_etapa": 1,
+                  "ds_etapa": "Planejamento da pesquisa e do gerenciamento do Projeto (PPGP)",
+                  "dt_inicio_vigencia": null,
+                  "dt_fim_vigencia": null
+                },
+                {
+                  "id_etapa": 2,
+                  "ds_etapa": "Pesquisas aplicadas nas áreas de Integração e operacionalização sistêmica na PGFN",
+                  "dt_inicio_vigencia": null,
+                  "dt_fim_vigencia": null
+                },
+                {
+                  "id_etapa": 3,
+                  "ds_etapa": "Pesquisas nas Áreas de Gestão de Serviços e Mapeamento de Processos nas atividades.",
+                  "dt_inicio_vigencia": null,
+                  "dt_fim_vigencia": null
+                }
+              ]
+            }
+          }
+        }
+          
+      }
+    },
+    "/etapaeap/{id_etapa}": {
+      "get": {
+        "tags": [
+          "EtapaEapREST"
+        ],
+        "operationId": "etapaeapbyid",
+        "summary": "Retorna uma etapa eap pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_etapa",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da etapa"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "EtapaEapResponse",
+            "examples": {
+              "application/json": {
+                "id_etapa": 1,
+                "ds_etapa": "Planejamento da pesquisa e do gerenciamento do Projeto (PPGP)",
+                "dt_inicio_vigencia": null,
+                "dt_fim_vigencia": null
+              }
+            }
+          }
+        }
+          
+      }
+    },
+    "/atividadeetapaeap": {
+      "get": {
+        "tags": [
+          "AtividadeEtapaEapREST"
+        ],
+        "operationId": "atividadeetapaeap",
+        "summary": "Retorna a lista de atividades das etapas eap",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "AtividadeEtapaEapResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_atividade_etapa": 1,
+                  "id_etapa": 1,
+                  "ds_etapa": "Planejamento da pesquisa e do gerenciamento do Projeto (PPGP)",
+                  "ds_atividade_etapa": "Detalhamento do Plano de Pesquisa e de Gerenciamento do Projeto – PPGP.",
+                  "dt_inicio_vigencia": null,
+                  "dt_fim_vigencia": null
+                },
+                {
+                  "id_atividade_etapa": 2,
+                  "id_etapa": 1,
+                  "ds_etapa": "Planejamento da pesquisa e do gerenciamento do Projeto (PPGP)",
+                  "ds_atividade_etapa": "Elaboração de uma Estrutura Analítica do Projeto (EAP) e Estrutura de Riscos do Projeto (EAR);",
+                  "dt_inicio_vigencia": null,
+                  "dt_fim_vigencia": null
+                },
+                {
+                  "id_atividade_etapa": 3,
+                  "id_etapa": 1,
+                  "ds_etapa": "Planejamento da pesquisa e do gerenciamento do Projeto (PPGP)",
+                  "ds_atividade_etapa": "Metodologia de Acompanhamento e Monitoramento do Projeto com Desenvolvimento dos Indicadores para Monitoramento e Controle",
+                  "dt_inicio_vigencia": null,
+                  "dt_fim_vigencia": null
+                }
+              ]
+            }
+          }
+        }
+          
+      }
+    },
+    "/atividadeetapaeap/{id_atividade_etapa}": {
+      "get": {
+        "tags": [
+          "AtividadeEtapaEapREST"
+        ],
+        "operationId": "atividadeetapaeapbyid",
+        "summary": "Retorna uma atividade da etapa eap pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_atividade_etapa",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da atividade da etapa eap"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "AtividadeEtapaEapResponse",
+            "examples": {
+              "application/json": {
+                "id_atividade_etapa": 1,
+                "id_etapa": 1,
+                "ds_etapa": "Planejamento da pesquisa e do gerenciamento do Projeto (PPGP)",
+                "ds_atividade_etapa": "Detalhamento do Plano de Pesquisa e de Gerenciamento do Projeto – PPGP.",
+                "dt_inicio_vigencia": null,
+                "dt_fim_vigencia": null
+              }
+            }
+          }
+        }
+          
+      }
+    },
+    "/atividadebacklog": {
+      "get": {
+        "tags": [
+          "AtividadeBacklogREST"
+        ],
+        "operationId": "atividadebacklog",
+        "summary": "Retorna a lista de atividades do backlog",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "AtividadeBacklogResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_atividade": 14,
+                  "id_atividade_etapa_eap": 7,
+                  "ds_atividade_etapa_eap": "Modelar funcionalidades dos sistemas",
+                  "ds_atividade_etapa": "Desenvolvimento do Protótipo da tela Manter Pessoas",
+                  "ds_detalhe_atividade": "N/A",
+                  "id_situacao_atividade": 2,
+                  "ds_situacao_atividade": "Em andamento",
+                  "id_prioridade_atividade": 2,
+                  "ds_prioridade_atividade": "Média",
+                  "id_sprint": 1,
+                  "id_ted": 1,
+                  "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                  "dt_inicio_atividade": "2022-04-20T03:00:00.000Z",
+                  "dt_fim_atividade": null
+                },
+                {
+                  "id_atividade": 13,
+                  "id_atividade_etapa_eap": 7,
+                  "ds_atividade_etapa_eap": "Modelar funcionalidades dos sistemas",
+                  "ds_atividade_etapa": "Documentar a funcionalidade Manter Pessoas: Histórico de Processos.",
+                  "ds_detalhe_atividade": "N/A",
+                  "id_situacao_atividade": 2,
+                  "ds_situacao_atividade": "Em andamento",
+                  "id_prioridade_atividade": 2,
+                  "ds_prioridade_atividade": "Média",
+                  "id_sprint": 1,
+                  "id_ted": 1,
+                  "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                  "dt_inicio_atividade": "2022-04-20T03:00:00.000Z",
+                  "dt_fim_atividade": null
+                }
+              ]
+            }
+          }
+        }
+          
+      }
+    },
+    "/atividadebacklog/{id_atividade}": {
+      "get": {
+        "tags": [
+          "AtividadeBacklogREST"
+        ],
+        "operationId": "atividadebacklogbyid",
+        "summary": "Retorna uma atividade do backlog pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_atividade",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da atividade do backlog"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "AtividadeBacklogResponse",
+            "examples": {
+              "application/json": {
+                "id_atividade": 6,
+                "id_atividade_etapa_eap": 7,
+                "ds_atividade_etapa_eap": "Modelar funcionalidades dos sistemas",
+                "ds_atividade_etapa": "Levantamento de requisitos da funcionalidade Avançada de Pesquisar Pessoas.",
+                "ds_detalhe_atividade": "Item: Pesquisa Avançada (campos, campos que serão integrados com outros sistemas e regras da pesquisa)",
+                "id_situacao_atividade": 2,
+                "ds_situacao_atividade": "Em andamento",
+                "id_prioridade_atividade": 2,
+                "ds_prioridade_atividade": "Média",
+                "id_sprint": 1,
+                "id_ted": 1,
+                "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                "dt_inicio_atividade": "2022-04-20T03:00:00.000Z",
+                "dt_fim_atividade": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "/prioridadeatividade": {
+      "get": {
+        "tags": [
+          "PrioridadeAtividadeREST"
+        ],
+        "operationId": "getprioridadeatividade",
+        "summary": "Retorna a lista de prioridades da atividade",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "PrioridadeAtividadeResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_prioridade_atividade": 1,
+                  "ds_prioridade_atividade": "Baixa"
+                },
+                {
+                  "id_prioridade_atividade": 2,
+                  "ds_prioridade_atividade": "Média"
+                },
+                {
+                  "id_prioridade_atividade": 3,
+                  "ds_prioridade_atividade": "Alta"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/prioridadeatividade/{id_prioridade_atividade}": {
+      "get": {
+        "tags": [
+          "PrioridadeAtividadeREST"
+        ],
+        "operationId": "getprioridadeatividadebyid",
+        "summary": "Retorna uma prioridade da atividade pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_prioridade_atividade",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da prioridade da atividade"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PrioridadeAtividadeResponse",
+            "examples": {
+              "application/json": {
+                "id_prioridade_atividade": 1,
+                "ds_prioridade_atividade": "Baixa"
+              }
+            }
+          }
+        }
+          
+      }
+    },
+    "/situacaoatividade": {
+      "get": {
+        "tags": [
+          "SituacaoAtividadeREST"
+        ],
+        "operationId": "getsituacaoatividade",
+        "summary": "Retorna a lista de situações da atividade",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "SituacaoAtividadeResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_situacao_atividade": 1,
+                  "ds_situacao_atividade": "Bloqueada"
+                },
+                {
+                  "id_situacao_atividade": 2,
+                  "ds_situacao_atividade": "Em andamento"
+                },
+                {
+                  "id_situacao_atividade": 3,
+                  "ds_situacao_atividade": "Finalizada"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/situacaoatividade/{id_situacao_atividade}": {
+      "get": {
+        "tags": [
+          "SituacaoAtividadeREST"
+        ],
+        "operationId": "getsituacaoeatividadebyid",
+        "summary": "Retorna uma situação da atividade pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_situacao_atividade",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da situação da atividade"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SituacaoAtividadeResponse",
+            "examples": {
+              "application/json": {
+                "id_situacao_atividade": 1,
+                "ds_situacao_atividade": "Bloqueada"
+              }
+            }
+          }
+        }
+          
+      }
+    },
+    "/tarefa": {
+      "get": {
+        "tags": [
+          "TarefaREST"
+        ],
+        "operationId": "gettarefa",
+        "summary": "Retorna a lista de tarefas",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "TarefaResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_tarefa": 6,
+                  "id_ted": 1,
+                  "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                  "id_etapa": 2,
+                  "ds_etapa": "Pesquisas aplicadas nas áreas de Integração e operacionalização sistêmica na PGFN",
+                  "id_atividade_etapa": 7,
+                  "ds_atividade_etapa": "Modelar funcionalidades dos sistemas",
+                  "id_atividade_backlog": 2,
+                  "ds_atividade_backlog": "Levantamento de Requisitos da funcionalidade Pesquisar Pessoas.",
+                  "ds_tarefa": "Levantamento de Requisitos da funcionalidade Pesquisar Pessoas. ",
+                  "id_tarefa_pai": null,
+                  "id_solicitante": 2,
+                  "solicitante": "Flávio Praciano",
+                  "id_responsavel": 2,
+                  "responsavel": "Flávio Praciano",
+                  "id_situacao_tarefa": 1,
+                  "ds_situacao_tarefa": "Bloqueada",
+                  "nr_regra_negocio": "RN001, RN002, RN003",
+                  "nr_historia_usuario": "1",
+                  "tx_observacao": null,
+                  "dt_inicio_tarefa": "2022-04-20T03:00:00.000Z",
+                  "dt_fim_tarefa": null,
+                  "dt_inclusao": "2022-04-20T03:00:00.000Z"
+                },
+                {
+                  "id_tarefa": 7,
+                  "id_ted": 1,
+                  "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                  "id_etapa": 2,
+                  "ds_etapa": "Pesquisas aplicadas nas áreas de Integração e operacionalização sistêmica na PGFN",
+                  "id_atividade_etapa": 7,
+                  "ds_atividade_etapa": "Modelar funcionalidades dos sistemas",
+                  "id_atividade_backlog": 3,
+                  "ds_atividade_backlog": "Documentar a funcionalidade Pesquisar Pessoas",
+                  "ds_tarefa": "Documentar a funcionalidade Pesquisar Pessoas",
+                  "id_tarefa_pai": null,
+                  "id_solicitante": 3,
+                  "solicitante": "Paulo Henrique",
+                  "id_responsavel": 3,
+                  "responsavel": "Paulo Henrique",
+                  "id_situacao_tarefa": 1,
+                  "ds_situacao_tarefa": "Bloqueada",
+                  "nr_regra_negocio": "RN001, RN002, RN003",
+                  "nr_historia_usuario": "1",
+                  "tx_observacao": null,
+                  "dt_inicio_tarefa": "2022-04-20T03:00:00.000Z",
+                  "dt_fim_tarefa": null,
+                  "dt_inclusao": "2022-04-20T03:00:00.000Z"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/tarefa/{id_tarefa}": {
+      "get": {
+        "tags": [
+          "TarefaREST"
+        ],
+        "operationId": "gettarefabyid",
+        "summary": "Retorna uma tarefa pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_tarefa",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da tarefa"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "TarefaResponse",
+            "examples": {
+              "application/json": {
+                "id_tarefa": 6,
+                "id_ted": 1,
+                "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                "id_etapa": 2,
+                "ds_etapa": "Pesquisas aplicadas nas áreas de Integração e operacionalização sistêmica na PGFN",
+                "id_atividade_etapa": 7,
+                "ds_atividade_etapa": "Modelar funcionalidades dos sistemas",
+                "id_atividade_backlog": 2,
+                "ds_atividade_backlog": "Levantamento de Requisitos da funcionalidade Pesquisar Pessoas.",
+                "ds_tarefa": "Levantamento de Requisitos da funcionalidade Pesquisar Pessoas. ",
+                "id_tarefa_pai": null,
+                "id_solicitante": 2,
+                "solicitante": "Flávio Praciano",
+                "id_responsavel": 2,
+                "responsavel": "Flávio Praciano",
+                "id_situacao_tarefa": 1,
+                "ds_situacao_tarefa": "Bloqueada",
+                "nr_regra_negocio": "RN001, RN002, RN003",
+                "nr_historia_usuario": "1",
+                "tx_observacao": null,
+                "dt_inicio_tarefa": "2022-04-20T03:00:00.000Z",
+                "dt_fim_tarefa": null,
+                "dt_inclusao": "2022-04-20T03:00:00.000Z"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tarefa/situacao/{id_tarefa}": {
+      "put": {
+        "tags": [
+          "TarefaREST"
+        ],
+        "operationId": "puttarefabyid",
+        "summary": "Atualiza uma tarefa pelo ID da tarefa",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_tarefa",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da tarefa"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "TarefaResponse",
+            "examples": {
+              "application/json": {
+                "id_tarefa": 6,
+                "id_ted": 1,
+                "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                "id_etapa": 2,
+                "ds_etapa": "Pesquisas aplicadas nas áreas de Integração e operacionalização sistêmica na PGFN",
+                "id_atividade_etapa": 7,
+                "ds_atividade_etapa": "Modelar funcionalidades dos sistemas",
+                "id_atividade_backlog": 2,
+                "ds_atividade_backlog": "Levantamento de Requisitos da funcionalidade Pesquisar Pessoas.",
+                "ds_tarefa": "Levantamento de Requisitos da funcionalidade Pesquisar Pessoas. ",
+                "id_tarefa_pai": null,
+                "id_solicitante": 2,
+                "solicitante": "Flávio Praciano",
+                "id_responsavel": 2,
+                "responsavel": "Flávio Praciano",
+                "id_situacao_tarefa": 1,
+                "ds_situacao_tarefa": "Bloqueada",
+                "nr_regra_negocio": "RN001, RN002, RN003",
+                "nr_historia_usuario": "1",
+                "tx_observacao": null,
+                "dt_inicio_tarefa": "2022-04-20T03:00:00.000Z",
+                "dt_fim_tarefa": null,
+                "dt_inclusao": "2022-04-20T03:00:00.000Z"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/situacaotarefa": {
+      "get": {
+        "tags": [
+          "SituacaoTarefaREST"
+        ],
+        "operationId": "getsituacaotarefa",
+        "summary": "Retorna a lista de situações da tarefa",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "SituacaoTarefatResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_situacao_tarefa": 1,
+                  "ds_situacao_tarefa": "Bloqueada"
+                },
+                {
+                  "id_situacao_tarefa": 2,
+                  "ds_situacao_tarefa": "Em andamento"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/situacaotarefa/{id_situacao_tarefa}": {
+      "get": {
+        "tags": [
+          "SituacaoTarefaREST"
+        ],
+        "operationId": "getsituacaotarefabyid",
+        "summary": "Retorna uma situação da tarefa pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_situacao_tarefa",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da situação da tarefa"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SituacaoTarefatResponse",
+            "examples": {
+              "application/json": {
+                "id_situacao_tarefa": 1,
+                "ds_situacao_tarefa": "Bloqueada"
+              }
+            }
+          }
+        } 
+      }
+    },
+    "/sprint": {
+      "get": {
+        "tags": [
+          "SprintREST"
+        ],
+        "operationId": "getsprint",
+        "summary": "Retorna a lista de sprints",
+        "description": "description",
+        "responses": {
+          "200": {
+            "description": "SprintResponse",
+            "examples": {
+              "application/json": [
+                {
+                  "id_sprint": 1,
+                  "id_ted": 1,
+                  "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                  "dt_inicio": "2022-04-01T03:00:00.000Z",
+                  "dt_fim": "2022-04-30T03:00:00.000Z"
+                },
+                {
+                  "id_sprint": 2,
+                  "id_ted": 1,
+                  "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                  "dt_inicio": "2022-05-01T03:00:00.000Z",
+                  "dt_fim": "2022-05-30T03:00:00.000Z"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/sprint/{id_sprint}": {
+      "get": {
+        "tags": [
+          "SprintREST"
+        ],
+        "operationId": "getsprintbyid",
+        "summary": "Retorna uma sprint pelo ID",
+        "description": "description",
+        "parameters": [
+          {
+            "name": "id_sprint",
+            "in": "path",
+            "type": "integer",
+            "description": "ID da sprint"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SprintResponse",
+            "examples": {
+              "application/json": {
+                "id_sprint": 1,
+                "id_ted": 1,
+                "ds_ted": "Pesquisas e inovação tecnológica aplicadas às temáticas da informação e das comunicações no domínio da Procuradoria Geral da Fazenda Nacional - PGFN",
+                "dt_inicio": "2022-04-01T03:00:00.000Z",
+                "dt_fim": "2022-04-30T03:00:00.000Z"
+              }
+            }
+          }
+        }
+          
+      }
+    },
+    "/motivobloqueio": {
+      "get": {
+        "tags": [
+          "MotivoBloqueioREST"
+        ],
+        "operationId": "motivobloqueio",
+        "summary": "summary",
+        "description": "description",
+        "responses": {
+          "200": {
+          }
+        }
+      }
+    },
+    "/perfilusuario": {
+      "get": {
+        "tags": [
+          "PerfilUsuarioREST"
+        ],
+        "operationId": "perfilusuario",
+        "summary": "summary",
+        "description": "description",
+        "responses": {
+          "200": {
+          }
+        }
+      }
+    }
+  }
+    
+}
