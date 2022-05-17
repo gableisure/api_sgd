@@ -1,6 +1,6 @@
 const database = require('../db/database');
 
-exports.getUsuarios = () => {
+exports.getUsuario = () => {
     return database.query(`
         SELECT
             tu.id_usuario "id_usuario",
@@ -22,7 +22,7 @@ exports.getUsuarios = () => {
     );
 }
 
-exports.getUsuariosByTed = (id_ted) => {
+exports.getUsuarioByTed = (id_ted) => {
     return database.query(`
         SELECT
             tu.id_usuario "id_usuario",

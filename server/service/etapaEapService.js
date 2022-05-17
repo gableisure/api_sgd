@@ -7,3 +7,11 @@ exports.getEtapaEap = () => {
 exports.getEtapaEapById = (id) => {
     return etapaEapData.getEtapaEapById(id);
 }
+
+exports.createEtapaEap = (etapaEap) => {
+    return etapaEapData.createEtapaEap(etapaEap);
+}
+
+exports.updateEtapaEap = (idEtapaEap, etapaEap) => {
+    return etapaEapData.updateEtapaEap(idEtapaEap, etapaEap);
+}

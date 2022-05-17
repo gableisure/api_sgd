@@ -7,7 +7,7 @@ exports.createTed = (ds_ted) => {
     database.query(`INSERT INTO "SGD".tb_ted_unb (ds_ted) VALUES ('${ds_ted}')`);
 }
 
-exports.getTeds = () => {
+exports.getTed = () => {
     return database.query('SELECT * FROM "SGD".tb_ted_unb');
 }
 
