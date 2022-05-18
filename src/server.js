@@ -9,19 +9,19 @@ const app = express();
 
 const PORT = 3000;
 
-const motivoBloqueioRoute = require('./route/motivoBloqueioRoute');
-const perfilUsuarioRoute = require('./route/perfilUsuarioRoute');
-const prioridadeAtividadeRoute = require('./route/prioridadeAtividadeRoute');
-const situacaoAtividadeRoute = require('./route/situacaoAtividadeRoute');
-const etapaEapRoute = require('./route/etapaEapRoute');
-const tedRoute = require('./route/tedRoute');
-const usuarioRoute = require('./route/usuarioRoute');
-const situacaoTarefaRoute = require('./route/situacaoTarefaRoute');
-const tarefaRoute = require('./route/tarefaRoute');
-const sprintRoute = require('./route/sprintRoute');
-const atividadeEtapaEapRoute = require('./route/atividadeEtapaEapRoute');
-const atividadeBacklogRoute = require('./route/atividadeBacklogRoute');
-const tarefaObservadorRoute = require('./route/tarefaObservadorRoute');
+const motivoBloqueioRoute = require('./routes/motivoBloqueioRoute');
+const perfilUsuarioRoute = require('./routes/perfilUsuarioRoute');
+const prioridadeAtividadeRoute = require('./routes/prioridadeAtividadeRoute');
+const situacaoAtividadeRoute = require('./routes/situacaoAtividadeRoute');
+const etapaEapRoute = require('./routes/etapaEapRoute');
+const tedRoute = require('./routes/tedRoute');
+const usuarioRoute = require('./routes/usuarioRoute');
+const situacaoTarefaRoute = require('./routes/situacaoTarefaRoute');
+const tarefaRoute = require('./routes/tarefaRoute');
+const sprintRoute = require('./routes/sprintRoute');
+const atividadeEtapaEapRoute = require('./routes/atividadeEtapaEapRoute');
+const atividadeBacklogRoute = require('./routes/atividadeBacklogRoute');
+const tarefaObservadorRoute = require('./routes/tarefaObservadorRoute');
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.urlencoded({ extended: false }));
