@@ -1,3 +1,3 @@
 /node_modules
 
-server/db/database.js
+src/db/database.js
