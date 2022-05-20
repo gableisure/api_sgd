@@ -13,5 +13,9 @@ exports.createPrioridadeAtividade = (prioridadeAtividade) => {
 }
 
 exports.updatePrioridadeAtividade = (idPrioridadeAtividade, prioridadeAtividade) => {
-    database.query(`UPDATE "SGD".tb_prioridade_atividade SET ds_prioridade_atividade = '${prioridadeAtividade.ds_prioridade_atividade}', dt_fim = '${prioridadeAtividade.dt_fim}' WHERE id_prioridade_atividade = ${idPrioridadeAtividade}`);
+    if(prioridadeAtividade.dt_fim == null){
+        database.query(`UPDATE "SGD".tb_prioridade_atividade SET ds_prioridade_atividade = '${prioridadeAtividade.ds_prioridade_atividade}', dt_fim = NULL WHERE id_prioridade_atividade = ${idPrioridadeAtividade}`);
+    }else{
+        database.query(`UPDATE "SGD".tb_prioridade_atividade SET ds_prioridade_atividade = '${prioridadeAtividade.ds_prioridade_atividade}', dt_fim = '${prioridadeAtividade.dt_fim}' WHERE id_prioridade_atividade = ${idPrioridadeAtividade}`);
+    }
 }

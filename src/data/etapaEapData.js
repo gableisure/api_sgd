@@ -13,5 +13,9 @@ exports.createEtapaEap = (etapaEap) => {
 }
 
 exports.updateEtapaEap = (idEtapaEap, etapaEap) => {
-    database.query(`UPDATE "SGD".tb_etapa_eap SET ds_etapa = '${etapaEap.ds_etapa}', dt_fim_vigencia = '${etapaEap.dt_fim_vigencia}' WHERE id_etapa = ${idEtapaEap}`);
+    if(etapaEap.dt_fim_vigencia == null){
+        database.query(`UPDATE "SGD".tb_etapa_eap SET ds_etapa = '${etapaEap.ds_etapa}', dt_fim_vigencia = NULL WHERE id_etapa = ${idEtapaEap}`);
+    }else{
+        database.query(`UPDATE "SGD".tb_etapa_eap SET ds_etapa = '${etapaEap.ds_etapa}', dt_fim_vigencia = '${etapaEap.dt_fim_vigencia}' WHERE id_etapa = ${idEtapaEap}`);
+    }
 }
