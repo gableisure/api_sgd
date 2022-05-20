@@ -15,18 +15,19 @@ router.get('/motivobloqueio/:id', async function(req, res) {
 
 router.post('/motivobloqueio', async function(req, res) {
     const motivoBloqueio = {
-        tx_motivo_bloqueio: req.body.tx_motivo_bloqueio,
-        dt_inicio: req.body.dt_inicio
+        tx_motivo_bloqueio: req.body.tx_motivo_bloqueio
     }
     motivoBloqueioService.createMotivoBloqueio(motivoBloqueio);
-    res.json(motivoBloqueio);
+    res.json({
+        "status": 200,
+        "message": "Motivo bloqueio criado com sucesso"
+    });
 });
 
 router.put('/motivobloqueio/:id', async function(req, res) {
     const { id } = req.params;
     const motivoBloqueio = {
         tx_motivo_bloqueio: req.body.tx_motivo_bloqueio,
-        dt_inicio: req.body.dt_inicio,
         dt_fim: req.body.dt_fim
     }
     motivoBloqueioService.updateMotivoBloqueio(id, motivoBloqueio);

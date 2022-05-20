@@ -9,13 +9,9 @@ exports.getMotivoBloqueioById = (id) => {
 }
 
 exports.createMotivoBloqueio = (motivoBloqueio) => {
-    return database.query(`INSERT INTO "SGD".tb_motivo_bloqueio (tx_motivo_bloqueio, dt_inicio) VALUES ('${motivoBloqueio.tx_motivo_bloqueio}', '${motivoBloqueio.dt_inicio}')`);
+    return database.query(`INSERT INTO "SGD".tb_motivo_bloqueio (tx_motivo_bloqueio) VALUES ('${motivoBloqueio.tx_motivo_bloqueio}')`);
 }
 
 exports.updateMotivoBloqueio = (idMotivoBloqueio, motivoBloqueio) => {
-    if(motivoBloqueio.dt_fim == null) {
-        database.query(`UPDATE "SGD".tb_motivo_bloqueio SET tx_motivo_bloqueio = '${motivoBloqueio.tx_motivo_bloqueio}', dt_inicio = '${motivoBloqueio.dt_inicio}', dt_fim = NULL WHERE id_motivo_bloqueio = ${idMotivoBloqueio}`);
-    }else{
-        database.query(`UPDATE "SGD".tb_motivo_bloqueio SET tx_motivo_bloqueio = '${motivoBloqueio.tx_motivo_bloqueio}', dt_inicio = '${motivoBloqueio.dt_inicio}', dt_fim = '${motivoBloqueio.dt_fim}' WHERE id_motivo_bloqueio = ${idMotivoBloqueio}`);
-    }
+    database.query(`UPDATE "SGD".tb_motivo_bloqueio SET tx_motivo_bloqueio = '${motivoBloqueio.tx_motivo_bloqueio}', dt_fim = '${motivoBloqueio.dt_fim}' WHERE id_motivo_bloqueio = ${idMotivoBloqueio}`);
 }

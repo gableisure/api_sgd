@@ -33,7 +33,7 @@ router.put('/ted/:id', (req, res) => {
 router.delete('/ted/:id', (req, res) => {
     const { id } = req.params;
     tedService.deleteTed(id)
-    return res.json({
+    res.json({
         "statusCode": 200,
         "message": "TED deletado com sucesso"
     })

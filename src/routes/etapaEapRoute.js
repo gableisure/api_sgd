@@ -15,18 +15,19 @@ router.get('/etapaeap/:id', async function(req, res) {
 
 router.post('/etapaeap', async function(req, res) {
     const etapaEap = {
-        ds_etapa: req.body.ds_etapa,
-        dt_inicio_vigencia: req.body.dt_inicio_vigencia
+        ds_etapa: req.body.ds_etapa
     }
     etapaEapService.createEtapaEap(etapaEap);
-    res.json(etapaEap);
+    res.json({
+        "status": 200,
+        "message": "Etapa eap criada com sucesso"
+    });
 });
 
 router.put('/etapaeap/:id', async function(req, res) {
     const { id } = req.params;
     const etapaEap = {
         ds_etapa: req.body.ds_etapa,
-        dt_inicio_vigencia: req.body.dt_inicio_vigencia,
         dt_fim_vigencia: req.body.dt_fim_vigencia
     }
     etapaEapService.updateEtapaEap(id, etapaEap);
