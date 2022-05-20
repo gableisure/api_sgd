@@ -15,24 +15,25 @@ router.get('/perfilusuario/:id', async function(req, res) {
 
 router.post('/perfilusuario', async function(req, res) {
     const perfilUsuario = {
-        ds_perfil_usuario: req.body.ds_perfil_usuario,
-        dt_inicio_vigencia: req.body.dt_inicio_vigencia
+        ds_perfil_usuario: req.body.ds_perfil_usuario
     }
     perfilUsuarioService.createPerfilUsuario(perfilUsuario);
-    res.json(perfilUsuario);
+    res.json({
+        "status": 200,
+        "message": "Perfil usuário criado com sucesso"
+    });
 });
 
 router.put('/perfilusuario/:id', async function(req, res) {
     const { id } = req.params;
     const perfilUsuario = {
         ds_perfil_usuario: req.body.ds_perfil_usuario,
-        dt_inicio_vigencia: req.body.dt_inicio_vigencia,
         dt_fim_vigencia: req.body.dt_fim_vigencia
     }
     perfilUsuarioService.updatePerfilUsuario(id, perfilUsuario);
     res.json({
         "status": 200,
-        "message": "Perfil do usuário atualizado com sucesso"
+        "message": "Perfil usuário atualizado com sucesso"
     });
 });
 

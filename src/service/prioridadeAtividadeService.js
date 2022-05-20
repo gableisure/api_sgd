@@ -7,3 +7,13 @@ exports.getPrioridadeAtividade = () => {
 exports.getPrioridadeAtividadeById = (id) => {
     return prioridadeAtividadeData.getPrioridadeAtividadeById(id);
 }
+
+exports.createPrioridadeAtividade = (prioridadeAtividade) => {
+    return prioridadeAtividadeData.createPrioridadeAtividade(prioridadeAtividade);
+}
+
+exports.updatePrioridadeAtividade = (id, prioridadeAtividade) => {
+    return prioridadeAtividadeData.updatePrioridadeAtividade(id, prioridadeAtividade);
+}
+
+
