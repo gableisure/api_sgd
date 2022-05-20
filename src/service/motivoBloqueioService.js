@@ -12,6 +12,6 @@ exports.createMotivoBloqueio = (motivoBloqueio) => {
     return motivoBloqueioData.createMotivoBloqueio(motivoBloqueio);
 }
 
-exports.updateMotivoBloqueio = (id_motivo_bloqueio, motivoBloqueio) => {
-    return motivoBloqueioData.updateMotivoBloqueio(id_motivo_bloqueio, motivoBloqueio);
+exports.updateMotivoBloqueio = (idMotivoBloqueio, motivoBloqueio) => {
+    return motivoBloqueioData.updateMotivoBloqueio(idMotivoBloqueio, motivoBloqueio);
 }
