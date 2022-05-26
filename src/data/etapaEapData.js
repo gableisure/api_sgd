@@ -9,7 +9,7 @@ exports.getEtapaEapById = (id) => {
 }
 
 exports.createEtapaEap = (etapaEap) => {
-    return database.query(`INSERT INTO "SGD".tb_etapa_eap (ds_etapa) VALUES ('${etapaEap.ds_etapa}')`);
+    database.query(`INSERT INTO "SGD".tb_etapa_eap (ds_etapa) VALUES ('${etapaEap.ds_etapa}')`);
 }
 
 exports.updateEtapaEap = (idEtapaEap, etapaEap) => {

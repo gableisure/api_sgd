@@ -3,8 +3,8 @@ const fs = require('fs');
 
 /* const queryTedInfo = fs.readFileSync('../db/sql/tedInfo.sql').toString(); */
 
-exports.createTed = (ds_ted) => {
-    database.query(`INSERT INTO "SGD".tb_ted_unb (ds_ted) VALUES ('${ds_ted}')`);
+exports.createTed = (ted) => {
+    database.query(`INSERT INTO "SGD".tb_ted_unb (ds_ted, sg_ted) VALUES ('${ted.ds_ted}', '${ted.sg_ted}')`);
 }
 
 exports.getTed = () => {
@@ -15,12 +15,16 @@ exports.getTedById = (id) => {
     return database.query(`SELECT * FROM "SGD".tb_ted_unb WHERE id_ted = ${id}`);
 }
 
-exports.updateTed = (id, ds_ted) => {
-    return database.query(`UPDATE "SGD".tb_ted_unb SET ds_ted = '${ds_ted}' WHERE id_ted = ${id}`);
-}
-
-exports.deleteTed = (id) => {
-    return database.query(`DELETE FROM "SGD".tb_ted_unb WHERE id_ted = ${id}`);
+exports.updateTed = (id, ted) => {
+    if(ted.sg_ted == null && ted.dt_fim == null){
+        database.query(`UPDATE "SGD".tb_ted_unb SET ds_ted = '${ted.ds_ted}', sg_ted = NULL, dt_fim = NULL WHERE id_ted = ${id}`);
+    }else if(ted.sg_ted != null && ted.dt_fim == null){
+        database.query(`UPDATE "SGD".tb_ted_unb SET ds_ted = '${ted.ds_ted}', sg_ted = '${ted.sg_ted}', dt_fim = NULL WHERE id_ted = ${id}`);
+    }else if(ted.sg_ted == null && ted.dt_fim != null){
+        database.query(`UPDATE "SGD".tb_ted_unb SET ds_ted = '${ted.ds_ted}', sg_ted = NULL, dt_fim = '${ted.dt_fim}' WHERE id_ted = ${id}`);
+    }else{
+        database.query(`UPDATE "SGD".tb_ted_unb SET ds_ted = '${ted.ds_ted}', sg_ted = '${ted.sg_ted}', dt_fim = '${ted.dt_fim}' WHERE id_ted = ${id}`);
+    }
 }
 
 exports.getTedDetailsById = (id) => {

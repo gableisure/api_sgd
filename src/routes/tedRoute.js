@@ -20,23 +20,29 @@ router.get('/ted/:id', async (req, res) => {
 });
 
 router.post('/ted', async (req, res) => {
-    tedService.createTed(req.body.ds_ted);
-    res.send(req.body)
+    const ted = {
+        ds_ted: req.body.ds_ted,
+        sg_ted: req.body.sg_ted
+    }
+    tedService.createTed(ted);
+    res.json({
+        "status": 200,
+        "message": "TED criada com sucesso"
+    });
 });
 
 router.put('/ted/:id', (req, res) => {
     const { id } = req.params;
-    tedService.updateTed(id, req.body.ds_ted)
-    res.json({ "ds_ted":  req.body.ds_ted })
-});
-
-router.delete('/ted/:id', (req, res) => {
-    const { id } = req.params;
-    tedService.deleteTed(id)
+    const ted = {
+        ds_ted: req.body.ds_ted,
+        sg_ted: req.body.sg_ted,
+        dt_fim: req.body.dt_fim
+    }
+    tedService.updateTed(id, ted);
     res.json({
-        "statusCode": 200,
-        "message": "TED deletado com sucesso"
-    })
+        "status": 200,
+        "message": "TED atualizada com sucesso"
+    });
 });
 
 module.exports = router;
