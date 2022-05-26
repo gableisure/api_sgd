@@ -6,8 +6,6 @@ exports.getTedById = (id) => tedData.getTedById(id);
 
 exports.getTedDetailsById = (id) => tedData.getTedDetailsById(id);
 
-exports.createTed = (ds_ted) => tedData.createTed(ds_ted)
+exports.createTed = (ted) => tedData.createTed(ted);
 
-exports.updateTed = (id, ds_ted) => tedData.updateTed(id, ds_ted)
-
-exports.deleteTed = (id) => tedData.deleteTed(id)
+exports.updateTed = (id, ted) => tedData.updateTed(id, ted);
