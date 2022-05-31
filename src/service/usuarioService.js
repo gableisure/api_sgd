@@ -12,3 +12,10 @@ exports.getUsuarioByTed = (id) => {
     return usuarioData.getUsuarioByTed(id);
 }
 
+exports.createUsuario = (user) => {
+    usuarioData.createUsuario(user);
+}
+
+exports.updateUsuario = (idUser, user) => {
+    usuarioData.updateUsuario(idUser, user);
+}
