@@ -68,9 +68,21 @@ exports.getUsuarioByTed = (id_ted) => {
     );
 }
 
+exports.createUsuario = (user) => {
+    database.query(`INSERT INTO "SGD".tb_usuario (nm_usuario, nr_cpf, id_perfil_usuario, id_ted, tx_senha_acesso) VALUES ('${user.nm_usuario}', '${user.nr_cpf}', ${user.id_perfil_usuario}, ${user.id_ted}, '${user.tx_senha_acesso}')`);
+}
 
-/* exports.createUsuario = (user) => {
-    database.query('')
-} */
+exports.updateUsuario = (idUser, user) => {
+    if(user.id_motivo_bloqueio == null && user.dt_fim_cadastro == null){
+        database.query(`UPDATE "SGD".tb_usuario SET nm_usuario='${user.nm_usuario}', nr_cpf='${user.nr_cpf}', id_perfil_usuario=${user.id_perfil_usuario}, id_ted=${user.id_ted}, tx_senha_acesso='${user.tx_senha_acesso}', id_motivo_bloqueio=NULL, dt_fim_cadastro=NULL WHERE id_usuario = ${idUser}`);
+    }else if(user.id_motivo_bloqueio != null && user.dt_fim_cadastro == null){
+        database.query(`UPDATE "SGD".tb_usuario SET nm_usuario='${user.nm_usuario}', nr_cpf='${user.nr_cpf}', id_perfil_usuario=${user.id_perfil_usuario}, id_ted=${user.id_ted}, tx_senha_acesso='${user.tx_senha_acesso}', id_motivo_bloqueio=${user.id_motivo_bloqueio}, dt_fim_cadastro=NULL WHERE id_usuario = ${idUser}`);
+    }else if(user.id_motivo_bloqueio == null && user.dt_fim_cadastro != null){
+        database.query(`UPDATE "SGD".tb_usuario SET nm_usuario='${user.nm_usuario}', nr_cpf='${user.nr_cpf}', id_perfil_usuario=${user.id_perfil_usuario}, id_ted=${user.id_ted}, tx_senha_acesso='${user.tx_senha_acesso}', id_motivo_bloqueio=NULL, dt_fim_cadastro='${user.dt_fim_cadastro}' WHERE id_usuario = ${idUser}`);
+    }else{
+        database.query(`UPDATE "SGD".tb_usuario SET nm_usuario='${user.nm_usuario}', nr_cpf='${user.nr_cpf}', id_perfil_usuario=${user.id_perfil_usuario}, id_ted=${user.id_ted}, tx_senha_acesso='${user.tx_senha_acesso}', id_motivo_bloqueio=${user.id_motivo_bloqueio}, dt_fim_cadastro='${user.dt_fim_cadastro}' WHERE id_usuario = ${idUser}`);
+    }
+}
+
 
 

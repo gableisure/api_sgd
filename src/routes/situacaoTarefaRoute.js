@@ -22,7 +22,7 @@ router.post('/situacaotarefa', async function(req, res) {
         "status": 200,
         "message": "Situação de tarefa criada com sucesso"
     });
-})
+});
 
 router.put('/situacaotarefa/:id', async function(req, res) {
     const { id } = req.params
