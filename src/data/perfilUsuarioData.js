@@ -1,22 +1,23 @@
 const database = require('../db/database');
 
 exports.getPerfilUsuario = () => {
-    return database.query('SELECT * FROM "SGD".tb_perfil_usuario');
+    const query = `SELECT * FROM "SGD".tb_perfil_usuario`;
+    return database.query(query);
 }
 
-exports.getPerfilUsuarioById = (id) => {
-    return database.query(`SELECT * FROM "SGD".tb_perfil_usuario WHERE id_perfil_usuario = ${id}`);
+exports.getPerfilUsuarioById = (idPerfilUsuario) => {
+    const query = `SELECT * FROM "SGD".tb_perfil_usuario WHERE id_perfil_usuario = $1`;
+    return database.query(query, idPerfilUsuario);
 }
 
-exports.createPerfilUsuario = (perfilUsuario) => {
-    database.query(`INSERT INTO "SGD".tb_perfil_usuario(ds_perfil_usuario) VALUES ('${perfilUsuario.ds_perfil_usuario}')`);
+exports.createPerfilUsuario = (ds_perfil_usuario) => {
+    const query = `INSERT INTO "SGD".tb_perfil_usuario(ds_perfil_usuario) VALUES ($1)`;
+    const parameters = [...Object.values(ds_perfil_usuario)];
+    database.query(query, parameters);
 }
 
-exports.updatePerfilUsuario = (id_perfil_usuario, perfilUsuario) => {
-    if(perfilUsuario.dt_fim_vigencia == null){
-        database.query(`UPDATE "SGD".tb_perfil_usuario SET ds_perfil_usuario = '${perfilUsuario.ds_perfil_usuario}', dt_fim_vigencia = NULL WHERE id_perfil_usuario = ${id_perfil_usuario}`);
-    }else{
-        database.query(`UPDATE "SGD".tb_perfil_usuario SET ds_perfil_usuario = '${perfilUsuario.ds_perfil_usuario}', dt_fim_vigencia = '${perfilUsuario.dt_fim_vigencia}' WHERE id_perfil_usuario = ${id_perfil_usuario}`);
-    }
-    
+exports.updatePerfilUsuario = (idPerfilUsuario, perfilUsuario) => {
+    const query = `UPDATE "SGD".tb_perfil_usuario SET ` + Object.keys(perfilUsuario).map((key, i) => `${key} = $${i+1}`).join(", ") + ` WHERE id_perfil_usuario = $${Object.keys(perfilUsuario).length+1}`;
+    const parameters = [...Object.values(perfilUsuario), idPerfilUsuario];
+    database.query(query, parameters);  
 }
