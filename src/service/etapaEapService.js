@@ -4,8 +4,8 @@ exports.getEtapaEap = () => {
     return etapaEapData.getEtapaEap();
 }
 
-exports.getEtapaEapById = (id) => {
-    return etapaEapData.getEtapaEapById(id);
+exports.getEtapaEapById = (idEtapaEap) => {
+    return etapaEapData.getEtapaEapById(idEtapaEap);
 }
 
 exports.createEtapaEap = (etapaEap) => {

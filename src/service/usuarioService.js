@@ -4,18 +4,14 @@ exports.getUsuario = () => {
     return usuarioData.getUsuario();
 }
 
-exports.getUsuarioById = (id) => {
-    return usuarioData.getUsuarioById(id);
+exports.getUsuarioById = (idUsuario) => {
+    return usuarioData.getUsuarioById(idUsuario);
 }
 
-exports.getUsuarioByTed = (id) => {
-    return usuarioData.getUsuarioByTed(id);
+exports.createUsuario = (usuario) => {
+    usuarioData.createUsuario(usuario);
 }
 
-exports.createUsuario = (user) => {
-    usuarioData.createUsuario(user);
-}
-
-exports.updateUsuario = (idUser, user) => {
-    usuarioData.updateUsuario(idUser, user);
+exports.updateUsuario = (idUsuario, usuario) => {
+    usuarioData.updateUsuario(idUsuario, usuario);
 }

@@ -4,8 +4,8 @@ exports.getMotivoBloqueio = () => {
     return motivoBloqueioData.getMotivoBloqueio();
 }
 
-exports.getMotivoBloqueioById = (id) => {
-    return motivoBloqueioData.getMotivoBloqueioById(id);
+exports.getMotivoBloqueioById = (idMotivoBloqueio) => {
+    return motivoBloqueioData.getMotivoBloqueioById(idMotivoBloqueio);
 }
 
 exports.createMotivoBloqueio = (motivoBloqueio) => {

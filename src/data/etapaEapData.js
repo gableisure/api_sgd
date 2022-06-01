@@ -1,21 +1,23 @@
 const database = require('../db/database');
 
 exports.getEtapaEap = () => {
-    return database.query('SELECT * FROM "SGD".tb_etapa_eap');
+    const query = `SELECT * FROM "SGD".tb_etapa_eap`;
+    return database.query(query);
 }
 
-exports.getEtapaEapById = (id) => {
-    return database.query(`SELECT * FROM "SGD".tb_etapa_eap WHERE id_etapa = ${id}`);
+exports.getEtapaEapById = (idEtapaEap) => {
+    const query = `SELECT * FROM "SGD".tb_etapa_eap WHERE id_etapa = $1`;
+    return database.query(query, idEtapaEap);
 }
 
-exports.createEtapaEap = (etapaEap) => {
-    database.query(`INSERT INTO "SGD".tb_etapa_eap (ds_etapa) VALUES ('${etapaEap.ds_etapa}')`);
+exports.createEtapaEap = (ds_etapa) => {
+    const query = `INSERT INTO "SGD".tb_etapa_eap (ds_etapa) VALUES ($1)`;
+    const parameters = [...Object.values(ds_etapa)];
+    database.query(query, parameters);
 }
 
 exports.updateEtapaEap = (idEtapaEap, etapaEap) => {
-    if(etapaEap.dt_fim_vigencia == null){
-        database.query(`UPDATE "SGD".tb_etapa_eap SET ds_etapa = '${etapaEap.ds_etapa}', dt_fim_vigencia = NULL WHERE id_etapa = ${idEtapaEap}`);
-    }else{
-        database.query(`UPDATE "SGD".tb_etapa_eap SET ds_etapa = '${etapaEap.ds_etapa}', dt_fim_vigencia = '${etapaEap.dt_fim_vigencia}' WHERE id_etapa = ${idEtapaEap}`);
-    }
+    const query = `UPDATE "SGD".tb_etapa_eap SET ` + Object.keys(etapaEap).map((key, i) => `${key} = $${i+1}`).join(", ") + ` WHERE id_etapa = $${Object.keys(etapaEap).length+1}`;
+    const parameters = [...Object.values(etapaEap), idEtapaEap];
+    database.query(query, parameters);
 }
