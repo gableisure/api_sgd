@@ -4,8 +4,8 @@ exports.getSituacaoTarefa = () => {
     return situacaoTarefaData.getSituacaoTarefa();
 }
 
-exports.getSituacaoTarefaById = (id) => {
-    return situacaoTarefaData.getSituacaoTarefaById(id);
+exports.getSituacaoTarefaById = (idSituacaoTarefa) => {
+    return situacaoTarefaData.getSituacaoTarefaById(idSituacaoTarefa);
 }
 
 exports.createSituacaoTarefa = (situacaoTarefa) => {

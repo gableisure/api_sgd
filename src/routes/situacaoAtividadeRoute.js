@@ -14,10 +14,7 @@ router.get('/situacaoatividade/:id', async function(req, res) {
 });
 
 router.post('/situacaoatividade', async function(req, res) {
-    const situacaoAtividade = {
-        ds_situacao_atividade: req.body.ds_situacao_atividade
-    }
-    situacaoAtividadeService.createSituacaoAtividade(situacaoAtividade);
+    situacaoAtividadeService.createSituacaoAtividade(req.body);
     res.json({
         "status": 200,
         "message": "Situação de atividade criada com sucesso"
@@ -26,11 +23,7 @@ router.post('/situacaoatividade', async function(req, res) {
 
 router.put('/situacaoatividade/:id', async function(req, res) {
     const { id } = req.params;
-    const situacaoAtividade = {
-        ds_situacao_atividade: req.body.ds_situacao_atividade,
-        dt_fim: req.body.dt_fim
-    }
-    situacaoAtividadeService.updateSituacaoAtividade(id, situacaoAtividade)
+    situacaoAtividadeService.updateSituacaoAtividade(id, req.body)
     res.json({
         "status": 200,
         "message": "Situação de atividade atualizada com sucesso"

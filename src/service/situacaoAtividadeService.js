@@ -4,8 +4,8 @@ exports.getSituacaoAtividade = () => {
     return situacaoAtividadeData.getSituacaoAtividade();
 }
 
-exports.getSituacaoAtividadeById = (id) => {
-    return situacaoAtividadeData.getSituacaoAtividadeById(id);
+exports.getSituacaoAtividadeById = (idSituacaoAtividade) => {
+    return situacaoAtividadeData.getSituacaoAtividadeById(idSituacaoAtividade);
 }
 
 exports.createSituacaoAtividade = (situacaoAtividade) => {
